@@ -32,15 +32,14 @@ describe('Cart Functionality Tests', () => {
     test('decrease quantity from 1 to 0 removes item from cart', () => {
         cart.decreaseQuantity(product1.productId);
         expect(product1.quantity).toEqual(0); // removes from cart
-        expect(cartArr.length).toEqual(0); // somehow not zero
-        // console.log(cartArr)
+        expect(cartArr).toEqual([]); // somehow not zero
     });
-    // test('remove 1 item from cart updates quantity to 0 and removes from cart', () => {
-    //     cart.addProductToCart(product1.productId);
-    //     cart.removeProductFromCart(product1.productId);
-    //     expect(product1.quantity).toEqual(0);
-    //     // expect(cartArr).toEqual([]);
-    // });
+    test('remove 1 item from cart updates quantity to 0 and removes from cart', () => {
+        cart.addProductToCart(product1.productId);
+        cart.removeProductFromCart(product1.productId);
+        expect(product1.quantity).toEqual(0);
+        expect(cartArr).toEqual([]);
+    });
 });
 
 
